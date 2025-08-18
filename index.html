@@ -103,8 +103,8 @@
         <div class="brand"><span class="dot"></span> Prajwal Ghoradkar</div>
         <nav>
           <ul>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact" class="btn">Contact</a></li>
           </ul>
@@ -112,8 +112,8 @@
         <button class="menu" id="menubtn" aria-label="Open menu">☰</button>
       </div>
       <div id="mobile" class="container">
-        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
@@ -123,24 +123,25 @@
   <main class="container">
     <section class="hero">
       <div>
-        <span class="tag">Platform • Distributed Systems • Golang</span>
+        <span class="tag">Distributed Systems • AI Software Engineer • Golang • Python • Java</span>
         <h1>Hi, I’m Prajwal — I build reliable, high‑performance backend & platform systems.</h1>
         <p>
-          MS CS @ Stony Brook (’25). Ex-Cisco (SD‑WAN orchestration) & IFC (EDGE – green certification).
+          MS CS @ Stony Brook (’26). Ex-Cisco (SD‑WAN Orchestration) & IFC (Green Certification AI Platform).
           I love solving infra problems around scalability, observability, and developer experience.
         </p>
         <div class="stack" style="margin:16px 0 10px">
-          <span class="pill">Golang</span>
-          <span class="pill">Python</span>
-          <span class="pill">Kubernetes</span>
-          <span class="pill">PostgreSQL</span>
-          <span class="pill">AWS (EC2, VPC, S3)</span>
-          <span class="pill">Kafka</span>
+          <div class="stack">
+          <span class="pill">Python</span><span class="pill">Golang</span><span class="pill">Java</span>
+          <span class="pill">Kubernetes</span><span class="pill">AWS</span>
+          <span class="pill">PyTorch</span><span class="pill">FastAPI</span><span class="pill">LangChain</span>
+          <span class="pill">PostgreSQL</span><span class="pill">Redis</span>
+        </div>
+
         </div>
         <div class="stack">
           <a class="btn" href="https://github.com/PrajwalG12121998" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="#projects">See projects ↓</a>
+          <a class="btn" href="https://www.linkedin.com/in/prajwal-ghoradkar-pg12/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="#experience">See experience ↓</a>
         </div>
       </div>
       <div class="avatar" aria-hidden="true">
@@ -152,33 +153,7 @@
       </div>
     </section>
 
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="meta">2025 • Golang • Kubernetes</div>
-          <h3>perftop (Kernel module)</h3>
-          <p>Linux kretprobe‑based scheduler profiler that tracks context switches and aggregates CPU time for the top tasks, exposing stats via <span class="kbd">/proc</span>.</p>
-          <div class="stack"><span class="pill">kretprobes</span><span class="pill">RBTrees</span><span class="pill">rdtsc</span></div>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a>
-        </article>
-        <article class="card">
-          <div class="meta">2025 • Python • AWS</div>
-          <h3>DocuAI Insight (Document QA)</h3>
-          <p>LangChain + VectorStore system to answer PDF questions; Cassandra/Astra for scalable storage; Streamlit UI for search and answer visualization.</p>
-          <div class="stack"><span class="pill">LangChain</span><span class="pill">Astra DB</span><span class="pill">RAG</span></div>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
-        </article>
-        <article class="card">
-          <div class="meta">2024 • Solidity • React</div>
-          <h3>Blockchain Beer Distribution Game</h3>
-          <p>Smart‑contract simulation of supply chain roles; automated transactions and dashboards; published results with Emerald Insight.</p>
-          <div class="stack"><span class="pill">Solidity</span><span class="pill">Ganache</span><span class="pill">Node.js</span></div>
-          <a class="btn" href="https://www.emerald.com/insight/content/doi/10.1108/imds-10-2021-0609/full/html" target="_blank" rel="noreferrer">Paper</a>
-        </article>
-      </div>
-    </section>
-
+    <!-- EXPERIENCE first -->
     <section id="experience">
       <h2>Experience</h2>
       <div class="timeline">
@@ -204,6 +179,34 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS after experience -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="meta">2025 • Golang • Kubernetes</div>
+          <h3>perftop (Kernel module)</h3>
+          <p>Linux kretprobe‑based scheduler profiler that tracks context switches and aggregates CPU time for the top tasks, exposing stats via <span class="kbd">/proc</span>.</p>
+          <div class="stack"><span class="pill">kretprobes</span><span class="pill">RBTrees</span><span class="pill">rdtsc</span></div>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a>
+        </article>
+        <article class="card">
+          <div class="meta">2025 • Python • AWS</div>
+          <h3>DocuAI Insight (Document QA)</h3>
+          <p>LangChain + VectorStore system to answer PDF questions; Cassandra/Astra for scalable storage; Streamlit UI for search and answer visualization.</p>
+          <div class="stack"><span class="pill">LangChain</span><span class="pill">Astra DB</span><span class="pill">RAG</span></div>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
+        </article>
+        <article class="card">
+          <div class="meta">2024 • Solidity • React</div>
+          <h3>Blockchain Beer Distribution Game</h3>
+          <p>Smart‑contract simulation of supply chain roles; automated transactions and dashboards; published results with Emerald Insight.</p>
+          <div class="stack"><span class="pill">Solidity</span><span class="pill">Ganache</span><span class="pill">Node.js</span></div>
+          <a class="btn" href="https://www.emerald.com/insight/content/doi/10.1108/imds-10-2021-0609/full/html" target="_blank" rel="noreferrer">Paper</a>
+        </article>
       </div>
     </section>
 
