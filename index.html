@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prajwal Ghoradkar – Software Engineer</title>
+  <meta name="description" content="Software Engineer focused on Platform Engineering, Distributed Systems, and Golang." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Prajwal Ghoradkar – Software Engineer" />
+  <meta property="og:description" content="Platform & Distributed Systems engineer. Golang • Python • Kubernetes • AWS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://PrajwalG12121998.github.io/" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@yourhandle" />
+
+  <!-- JSON-LD Profile -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prajwal Ghoradkar",
+    "jobTitle": "Software Engineer",
+    "url": "https://PrajwalG12121998.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/your-linkedin",
+      "https://github.com/PrajwalG12121998"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #0f141b;
+      --text: #e6edf3;
+      --muted: #9aa5b1;
+      --accent: #60a5fa; /* blue-400 */
+      --chip: #1a2430;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background: var(--bg); color: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header { position: sticky; top: 0; backdrop-filter: blur(10px); background: rgba(11,15,20,.6); border-bottom: 1px solid var(--border); z-index: 50; }
+    .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+    .brand { display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px; }
+    .brand .dot { width:10px; height:10px; background: var(--accent); border-radius: 50%; display:inline-block }
+    nav ul { display:flex; gap:16px; padding:0; margin:0; list-style:none; }
+    nav a { padding:8px 10px; border-radius: 10px; color: var(--muted); }
+    nav a:hover { background: var(--chip); color: var(--text); }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--border); border-radius:14px; background: linear-gradient(180deg, #111927, #0d141c); }
+    .btn:hover { border-color:#2b3a4b; }
+
+    .hero { padding: 80px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 10px; }
+    .hero p { color: var(--muted); font-size: 18px; line-height: 1.6; }
+    .tag { display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color: var(--muted); font-size: 13px; }
+    .pill { display:inline-block; padding:8px 12px; border-radius: 999px; background: var(--chip); border:1px solid var(--border); font-size: 13px; }
+    .stack { display:flex; flex-wrap: wrap; gap:8px; }
+    .panel { background: var(--panel); border:1px solid var(--border); border-radius: 20px; padding: 18px; }
+
+    section { padding: 40px 0; }
+    section h2 { margin:0 0 14px; font-size: 24px; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--panel); border:1px solid var(--border); border-radius: 18px; padding: 16px; display:flex; flex-direction:column; gap:10px; }
+    .card h3 { margin:0; font-size:18px; }
+    .meta { font-size: 13px; color: var(--muted); }
+
+    .timeline { display:grid; gap:14px; }
+    .row { display:grid; grid-template-columns: 140px 1fr; gap: 12px; align-items:start; }
+    .row .when { color: var(--muted); font-size: 13px; padding-top: 4px; }
+    .row .item { background: var(--panel); border:1px solid var(--border); border-radius: 14px; padding: 12px; }
+
+    .footer { padding: 30px 0 60px; color: var(--muted); display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+
+    .avatar { width: 220px; height: 220px; border-radius: 24px; background: linear-gradient(135deg, #0e1622, #0b1118); border:1px solid var(--border); display:grid; place-items:center; }
+    .avatar svg { width: 64px; height: 64px; opacity:.7 }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; }
+      nav ul { display:none; }
+      .menu { display:inline-flex }
+    }
+    .menu { display:none; padding:8px 10px; border:1px solid var(--border); border-radius: 12px; background: var(--panel); }
+    #mobile { display:none; }
+    #mobile.open { display:block; padding:8px 0 16px; }
+    #mobile a { display:block; padding:10px 0; color: var(--muted) }
+
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: #0b1220; border:1px solid var(--border); padding:2px 6px; border-radius:8px; font-size:12px }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand"><span class="dot"></span> Prajwal Ghoradkar</div>
+        <nav>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact" class="btn">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="menu" id="menubtn" aria-label="Open menu">☰</button>
+      </div>
+      <div id="mobile" class="container">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="tag">Platform • Distributed Systems • Golang</span>
+        <h1>Hi, I’m Prajwal — I build reliable, high‑performance backend & platform systems.</h1>
+        <p>
+          MS CS @ Stony Brook (’25). Ex-Cisco (SD‑WAN orchestration) & IFC (EDGE – green certification).
+          I love solving infra problems around scalability, observability, and developer experience.
+        </p>
+        <div class="stack" style="margin:16px 0 10px">
+          <span class="pill">Golang</span>
+          <span class="pill">Python</span>
+          <span class="pill">Kubernetes</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">AWS (EC2, VPC, S3)</span>
+          <span class="pill">Kafka</span>
+        </div>
+        <div class="stack">
+          <a class="btn" href="https://github.com/PrajwalG12121998" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="#projects">See projects ↓</a>
+        </div>
+      </div>
+      <div class="avatar" aria-hidden="true">
+        <!-- Simple avatar glyph -->
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 22a8 8 0 1 1 16 0H4Z" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="meta">2025 • Golang • Kubernetes</div>
+          <h3>perftop (Kernel module)</h3>
+          <p>Linux kretprobe‑based scheduler profiler that tracks context switches and aggregates CPU time for the top tasks, exposing stats via <span class="kbd">/proc</span>.</p>
+          <div class="stack"><span class="pill">kretprobes</span><span class="pill">RBTrees</span><span class="pill">rdtsc</span></div>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a>
+        </article>
+        <article class="card">
+          <div class="meta">2025 • Python • AWS</div>
+          <h3>DocuAI Insight (Document QA)</h3>
+          <p>LangChain + VectorStore system to answer PDF questions; Cassandra/Astra for scalable storage; Streamlit UI for search and answer visualization.</p>
+          <div class="stack"><span class="pill">LangChain</span><span class="pill">Astra DB</span><span class="pill">RAG</span></div>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
+        </article>
+        <article class="card">
+          <div class="meta">2024 • Solidity • React</div>
+          <h3>Blockchain Beer Distribution Game</h3>
+          <p>Smart‑contract simulation of supply chain roles; automated transactions and dashboards; published results with Emerald Insight.</p>
+          <div class="stack"><span class="pill">Solidity</span><span class="pill">Ganache</span><span class="pill">Node.js</span></div>
+          <a class="btn" href="https://www.emerald.com/insight/content/doi/10.1108/imds-10-2021-0609/full/html" target="_blank" rel="noreferrer">Paper</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="row">
+          <div class="when">2025 — Now</div>
+          <div class="item">
+            <strong>International Finance Corporation (IFC) – Software Engineer Intern</strong>
+            <div class="meta">EDGE Sustainability • FastAPI, SQL, AWS</div>
+            <ul>
+              <li>Built APIs for energy/water/material savings calculations; optimized queries and added caching.</li>
+              <li>Developed a RAG pipeline to answer measure‑specific questions for certification users.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">2022 — 2024</div>
+          <div class="item">
+            <strong>Cisco – Software Engineer II</strong>
+            <div class="meta">SD‑WAN Orchestration • AWS • Messaging</div>
+            <ul>
+              <li>Designed notification platform with SES/SQS; improved delivery reliability and throughput.</li>
+              <li>Integrated SonarQube in CI, reducing code defects and catching security issues early.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="panel">
+        <div class="stack">
+          <span class="pill">Golang</span><span class="pill">Python</span><span class="pill">Java</span>
+          <span class="pill">Kubernetes</span><span class="pill">Docker</span><span class="pill">AWS</span>
+          <span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">Kafka</span>
+          <span class="pill">FastAPI</span><span class="pill">Django</span><span class="pill">React</span>
+          <span class="pill">GraphQL</span><span class="pill">CI/CD</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>Open to Platform, Backend (Golang), and Distributed Systems roles. Best way to reach me is email.</p>
+        <p><a class="btn" href="mailto:your.email@example.com">your.email@example.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div>© <span id="year"></span> Prajwal Ghoradkar</div>
+    <div class="stack">
+      <a href="/resume.pdf" class="btn">Download résumé</a>
+      <a href="#" class="btn" id="theme">Toggle theme</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menubtn');
+    const mobile = document.getElementById('mobile');
+    btn?.addEventListener('click', () => mobile.classList.toggle('open'));
+    // Theme (light/dark toggle demo)
+    const themeBtn = document.getElementById('theme');
+    themeBtn?.addEventListener('click', () => {
+      if (document.body.dataset.theme === 'light') {
+        document.body.dataset.theme = '';
+        document.documentElement.style.setProperty('--bg', '#0b0f14');
+        document.documentElement.style.setProperty('--panel', '#0f141b');
+        document.documentElement.style.setProperty('--text', '#e6edf3');
+        document.documentElement.style.setProperty('--muted', '#9aa5b1');
+        document.documentElement.style.setProperty('--chip', '#1a2430');
+        document.documentElement.style.setProperty('--border', '#1f2937');
+      } else {
+        document.body.dataset.theme = 'light';
+        document.documentElement.style.setProperty('--bg', '#f7fafc');
+        document.documentElement.style.setProperty('--panel', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#0f172a');
+        document.documentElement.style.setProperty('--muted', '#475569');
+        document.documentElement.style.setProperty('--chip', '#eef2f7');
+        document.documentElement.style.setProperty('--border', '#e5e7eb');
+      }
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
