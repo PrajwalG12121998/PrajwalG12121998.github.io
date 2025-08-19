@@ -58,7 +58,8 @@
     /* make header contact button align with other links */
     .nav .btn { padding:8px 12px; height:40px; }
 
-    .hero { padding: 80px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
+    /* HERO */
+    .hero { padding: 80px 0 40px; display:grid; grid-template-columns: minmax(0,1.2fr) 360px; gap: 32px; align-items:center; }
     .hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 6px; }
     .hero h2 { margin: 0 0 10px; font-weight:600; color: var(--muted); }
     .hero p { color: var(--muted); font-size: 18px; line-height: 1.6; }
@@ -67,11 +68,13 @@
     .stack { display:flex; flex-wrap: wrap; gap:8px; }
     .panel { background: var(--panel); border:1px solid var(--border); border-radius: 20px; padding: 18px; }
 
-    /* New: hero meta chips + callout + ctas */
-    .meta-chips { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+    /* Hero enhancements */
     .callout { margin:12px 0 0; padding:12px 14px; border-radius:14px; background: linear-gradient(180deg, #101726, #0d141c); border:1px solid var(--border); }
     .cta { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
     .btn.solid { background: linear-gradient(180deg,#1f4270,#162a49); border-color:#264b84; }
+    .media { display:flex; justify-content:center; }
+    .avatar { width: 260px; height: 260px; border-radius: 24px; background: linear-gradient(135deg, #0e1622, #0b1118); border:1px solid var(--border); display:grid; place-items:center; }
+    .avatar svg { width: 64px; height: 64px; opacity:.7 }
 
     section { padding: 40px 0; }
     section h2 { margin:0 0 14px; font-size: 24px; }
@@ -85,18 +88,38 @@
     .row .when { color: var(--muted); font-size: 13px; padding-top: 4px; }
     .row .item { background: var(--panel); border:1px solid var(--border); border-radius: 14px; padding: 12px; }
 
+    /* Company line with right-aligned location */
+    .itemhead{display:flex; justify-content:space-between; gap:12px; align-items:baseline}
+    .loc{color:var(--muted); font-size:13px}
+
+    /* Skills grouped */
+    .skills-rail { display:flex; gap:12px; overflow-x:auto; padding:6px 2px 10px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; }
+    .skills-rail::-webkit-scrollbar { height:8px; }
+    .skills-rail::-webkit-scrollbar-thumb { background:#1f2937; border-radius:8px; }
+    .skill-box { flex:0 0 320px; background: var(--panel); border:1px solid var(--border); border-radius:16px; padding:14px; scroll-snap-align:start; }
+    .skill-box .k { margin:0 0 8px; font-size:14px; font-weight:600; }
+    .skill-list { display:flex; flex-wrap:wrap; gap:8px; }
+
+    /* Skills single box */
+    .skills-box { background: var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px; }
+    .skills-table { display:grid; grid-template-columns: 220px 1fr; gap:10px 14px; }
+    .skills-table dt { color: var(--muted); font-weight:600; }
+    .skills-table dd { margin:0; }
+    @media (max-width: 720px){ .skills-table { grid-template-columns: 1fr; } .skills-table dt { margin-top:8px; } }
+
     .footer { padding: 30px 0 60px; color: var(--muted); display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
 
-    .avatar { width: 220px; height: 220px; border-radius: 24px; background: linear-gradient(135deg, #0e1622, #0b1118); border:1px solid var(--border); display:grid; place-items:center; }
-    .avatar svg { width: 64px; height: 64px; opacity:.7 }
-
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 840px) {
       .hero { grid-template-columns: 1fr; }
+      .media { order: -1; margin-bottom: 10px; }
+    }
+    @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
       .row { grid-template-columns: 1fr; }
       nav ul { display:none; }
       .menu { display:inline-flex }
+      .skills-grid { grid-template-columns: 1fr; }
     }
     .menu { display:none; padding:8px 10px; border:1px solid var(--border); border-radius: 12px; background: var(--panel); }
     #mobile { display:none; }
@@ -104,6 +127,11 @@
     #mobile a { display:block; padding:10px 0; color: var(--muted) }
 
     .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: #0b1220; border:1px solid var(--border); padding:2px 6px; border-radius:8px; font-size:12px }
+      /* Skills lines (single box, horizontal rows) */
+    .skills-lines{ display:flex; flex-direction:column; gap:8px; }
+    .skill-line{ line-height:1.6; }
+    .skill-line + .skill-line{ border-top:1px solid var(--border); padding-top:8px; }
+    .skill-line .k{ color:var(--muted); font-weight:600; margin-right:8px; }
   </style>
 </head>
 <body>
@@ -114,6 +142,7 @@
         <nav>
           <ul>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact" class="btn">Contact</a></li>
@@ -123,6 +152,7 @@
       </div>
       <div id="mobile" class="container">
         <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -133,17 +163,12 @@
   <main class="container">
     <section class="hero">
       <div>
-        <span class="tag">Distributed Systems • AI Software Engineer • Python • Golang • Java</span>
+        <span class="tag">Distributed Systems • AI • Python • Golang • Java</span>
         <h1>Prajwal Ghoradkar</h1>
         <h2>Software Engineer</h2>
-        <p>
-          MS CS @ Stony Brook (’26). Ex-Cisco (SD‑WAN Orchestration) & IFC (Green Certification AI Platform).
-        </p>
-        <div class="callout">
-          I love solving infra problems around scalability, observability, and developer experience.
-        </div>
+        <p>MS CS @ Stony Brook (’26). Ex-Cisco (SD‑WAN Orchestration) & IFC (Green Certification AI Platform).</p>
+        <div class="callout">I love solving infra problems around scalability, observability, and developer experience.</div>
         <div class="stack" style="margin:16px 0 10px">
-          <div class="stack">
           <span class="pill">Python</span><span class="pill">Golang</span><span class="pill">Java</span>
           <span class="pill">Kubernetes</span><span class="pill">AWS</span>
           <span class="pill">PyTorch</span><span class="pill">FastAPI</span><span class="pill">LangChain</span>
@@ -155,12 +180,13 @@
           <a class="btn" href="#experience">See experience ↓</a>
         </div>
       </div>
-      <div class="avatar" aria-hidden="true">
-        <!-- Simple avatar glyph -->
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 22a8 8 0 1 1 16 0H4Z" />
-        </svg>
+      <div class="media">
+        <div class="avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 22a8 8 0 1 1 16 0H4Z" />
+          </svg>
+        </div>
       </div>
     </section>
 
@@ -171,7 +197,7 @@
         <div class="row">
           <div class="when">Jun 2025 — Aug 2025</div>
           <div class="item">
-            <strong>International Finance Corporation (IFC) – Software Engineer Intern (GenAI)</strong>
+            <div class="itemhead"><strong>International Finance Corporation (IFC) – Software Engineer Intern (GenAI)</strong><span class="loc">Washington, DC</span></div>
             <div class="meta">EDGE Sustainability • FastAPI, RAG, PostgreSQL, Azure</div>
             <ul>
               <li>Engineered a Retrieval-Augmented Generation (RAG) pipeline for the EDGE green certification platform, integrating Azure
@@ -186,8 +212,8 @@ in a 35% increase in correct and contextually relevant responses during pilot te
         <div class="row">
           <div class="when">Aug 2020 — Jul 2024</div>
           <div class="item">
-            <strong>Cisco – Software Engineer II</strong>
-            <div class="meta">SD‑WAN Orchestration • AWS • Messaging</div>
+            <div class="itemhead"><strong>Cisco – Software Engineer II</strong><span class="loc">Bangalore, India</span></div>
+            <div class="meta">SD‑WAN Orchestration • Notifications • AWS</div>
             <ul>
               <li>Developed end-to-end scalable notification system utilizing AWS SES and SQS; facilitated transmission of 10,000+ daily
 notifications with a 99.3% delivery success rate.</li>
@@ -215,9 +241,35 @@ reduction in support tickets related to license issues.
       </div>
     </section>
 
-    <!-- PROJECTS after experience -->
+    <!-- EDUCATION after experience -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="row">
+          <div class="when">2024 — 2026</div>
+          <div class="item">
+            <div class="itemhead"><strong>Stony Brook University — M.S. Computer Science</strong><span class="loc">Stony Brook, NY</span></div>
+            <div class="meta">Focus: Distributed Systems, Cloud, ML Systems</div>
+            <ul>
+              <li>Distributed Systems, Computer Vision, Data Science</li>
+              <li>Operating Systems, Adversarial Machine Learning</li>
+              <li>Advance Database Systems, Artificial Intelligence</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">2016 — 2020</div>
+          <div class="item">
+            <div class="itemhead"><strong>National Institute of Technology Calicut - Bachelor of Technology</strong><span class="loc">Bangalore, India</span></div>
+            <div class="meta">Focus: Computer Science and Engineering</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS after education -->
     <section id="projects">
-      <h2>Selected Projects</h2>
+      <h2>Projects</h2>
       <div class="grid">
         <article class="card">
           <div class="meta">2025 • Golang • Kubernetes</div>
@@ -245,13 +297,14 @@ reduction in support tickets related to license issues.
 
     <section id="skills">
       <h2>Skills</h2>
-      <div class="panel">
-        <div class="stack">
-          <span class="pill">Golang</span><span class="pill">Python</span><span class="pill">Java</span>
-          <span class="pill">Kubernetes</span><span class="pill">Docker</span><span class="pill">AWS</span>
-          <span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">Kafka</span>
-          <span class="pill">FastAPI</span><span class="pill">Django</span><span class="pill">React</span>
-          <span class="pill">GraphQL</span><span class="pill">CI/CD</span>
+      <div class="skills-box">
+        <div class="skills-lines">
+          <div class="skill-line"><span class="k">Languages:</span> Python, Golang (Go), Java, JavaScript, TypeScript, C++, C, HTML, CSS</div>
+          <div class="skill-line"><span class="k">Web:</span> Django, FastAPI, Flask, ReactJS, Spring</div>
+          <div class="skill-line"><span class="k">Database:</span> PostgreSQL, MySQL/SQL, Redis, MongoDB, DynamoDB</div>
+          <div class="skill-line"><span class="k">Machine Learning/Deep Learning:</span> PyTorch, Tensorflow, NumPy, Pandas, SciPy, Scikit-Learn, Open‑CV</div>
+          <div class="skill-line"><span class="k">Tools:</span> Linux/Unix, Celery, Kafka, RabbitMQ, Git/GitHub, Visual Studio, Cursor, Jupyter, Azure</div>
+          <div class="skill-line"><span class="k">Other:</span> Docker, Kubernetes, GraphQL, AWS EC2/Lambda/SQS/SES/VPC/Route53/CloudWatch, Containerization, Agile, CI/CD</div>
         </div>
       </div>
     </section>
