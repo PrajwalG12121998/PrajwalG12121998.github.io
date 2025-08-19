@@ -49,29 +49,19 @@
     .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
     .brand { display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:.3px; }
     .brand .dot { width:10px; height:10px; background: var(--accent); border-radius: 50%; display:inline-block }
-    nav ul { display:flex; gap:16px; padding:0; margin:0; list-style:none; align-items:center; }
-    nav ul li{ display:flex; align-items:center; }
-    nav a { display:flex; align-items:center; height:40px; padding:0 10px; border-radius: 10px; color: var(--muted); }
+    nav ul { display:flex; gap:16px; padding:0; margin:0; list-style:none; }
+    nav a { padding:8px 10px; border-radius: 10px; color: var(--muted); }
     nav a:hover { background: var(--chip); color: var(--text); }
     .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--border); border-radius:14px; background: linear-gradient(180deg, #111927, #0d141c); }
     .btn:hover { border-color:#2b3a4b; }
-    /* make header contact button align with other links */
-    .nav .btn { padding:8px 12px; height:40px; }
 
     .hero { padding: 80px 0 40px; display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items:center; }
-    .hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 6px; }
-    .hero h2 { margin: 0 0 10px; font-weight:600; color: var(--muted); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 10px; }
     .hero p { color: var(--muted); font-size: 18px; line-height: 1.6; }
     .tag { display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color: var(--muted); font-size: 13px; }
     .pill { display:inline-block; padding:8px 12px; border-radius: 999px; background: var(--chip); border:1px solid var(--border); font-size: 13px; }
     .stack { display:flex; flex-wrap: wrap; gap:8px; }
     .panel { background: var(--panel); border:1px solid var(--border); border-radius: 20px; padding: 18px; }
-
-    /* New: hero meta chips + callout + ctas */
-    .meta-chips { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
-    .callout { margin:12px 0 0; padding:12px 14px; border-radius:14px; background: linear-gradient(180deg, #101726, #0d141c); border:1px solid var(--border); }
-    .cta { display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
-    .btn.solid { background: linear-gradient(180deg,#1f4270,#162a49); border-color:#264b84; }
 
     section { padding: 40px 0; }
     section h2 { margin:0 0 14px; font-size: 24px; }
@@ -139,9 +129,9 @@
         <p>
           MS CS @ Stony Brook (’26). Ex-Cisco (SD‑WAN Orchestration) & IFC (Green Certification AI Platform).
         </p>
-        <div class="callout">
+        <p>
           I love solving infra problems around scalability, observability, and developer experience.
-        </div>
+        </p>
         <div class="stack" style="margin:16px 0 10px">
           <div class="stack">
           <span class="pill">Python</span><span class="pill">Golang</span><span class="pill">Java</span>
@@ -149,9 +139,11 @@
           <span class="pill">PyTorch</span><span class="pill">FastAPI</span><span class="pill">LangChain</span>
           <span class="pill">PostgreSQL</span><span class="pill">Redis</span>
         </div>
-        <div class="cta">
-          <a class="btn solid" href="https://github.com/PrajwalG12121998" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn solid" href="https://www.linkedin.com/in/prajwal-ghoradkar-pg12/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+        </div>
+        <div class="stack">
+          <a class="btn" href="https://github.com/PrajwalG12121998" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/prajwal-ghoradkar-pg12/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="btn" href="#experience">See experience ↓</a>
         </div>
       </div>
@@ -217,7 +209,7 @@ reduction in support tickets related to license issues.
 
     <!-- PROJECTS after experience -->
     <section id="projects">
-      <h2>Selected Projects</h2>
+      <h2>Projects</h2>
       <div class="grid">
         <article class="card">
           <div class="meta">2025 • Golang • Kubernetes</div>
