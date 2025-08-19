@@ -83,6 +83,23 @@
     .card h3 { margin:0; font-size:18px; }
     .meta { font-size: 13px; color: var(--muted); }
 
+    /* Projects — compact, less vertical */
+    .projects { display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+    details.proj { background: var(--panel); border:1px solid var(--border); border-radius:14px; padding:14px; }
+    details.proj summary { list-style:none; cursor:pointer; display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:center; }
+    details.proj summary::-webkit-details-marker{ display:none }
+    details.proj h3 { margin:0; font-size:16px; }
+    details.proj .meta { font-size:12px; color: var(--muted); }
+    details.proj .desc { color: var(--muted); margin-top:6px; display:-webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow:hidden; }
+    details.proj[open] .desc { display:block; -webkit-line-clamp: unset; overflow: visible; }
+    .badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px }
+    .badge { font-size:11px; padding:4px 8px; border:1px solid var(--border); border-radius:999px; background:#0f1722 }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px }
+    details.proj[open] { background: linear-gradient(180deg,#101726,#0d141c); }
+
+    @media (max-width: 1100px){ .projects { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px){ .projects { grid-template-columns: 1fr; } }
+
     .timeline { display:grid; gap:14px; }
     .row { display:grid; grid-template-columns: 140px 1fr; gap: 12px; align-items:start; }
     .row .when { color: var(--muted); font-size: 13px; padding-top: 4px; }
@@ -107,7 +124,7 @@
     .skills-table dd { margin:0; }
     @media (max-width: 720px){ .skills-table { grid-template-columns: 1fr; } .skills-table dt { margin-top:8px; } }
 
-    .footer { padding: 30px 0 60px; color: var(--muted); display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    .footer { padding: 48px 0 96px; color: var(--muted); display:flex; justify-content:flex-start; align-items:center; gap:20px; flex-wrap:wrap; border-top:1px solid var(--border); }
 
     /* Responsive */
     @media (max-width: 840px) {
@@ -132,6 +149,14 @@
     .skill-line{ line-height:1.6; }
     .skill-line + .skill-line{ border-top:1px solid var(--border); padding-top:8px; }
     .skill-line .k{ color:var(--muted); font-weight:600; margin-right:8px; }
+      /* Contact tidy block */
+    .contact-box { background: var(--panel); border:1px solid var(--border); border-radius:16px; padding:16px; }
+    .contact-table { display:grid; grid-template-columns: 160px 1fr; column-gap:14px; row-gap:10px; align-items:start; }
+    .contact-table dt { color: var(--muted); font-weight:600; }
+    .contact-table dd { margin:0; }
+    .contact-table a { overflow-wrap:anywhere; word-break:break-word; }
+    .contact-table dt { color: var(--muted); font-weight:600; }
+    .contact-table dd { margin:0; }
   </style>
 </head>
 <body>
@@ -145,6 +170,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="/resume.pdf" class="btn solid" target="_blank" rel="noreferrer">Resume (PDF)</a></li>
             <li><a href="#contact" class="btn">Contact</a></li>
           </ul>
         </nav>
@@ -155,6 +181,7 @@
         <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="/resume.pdf" target="_blank" rel="noreferrer">Résumé (PDF)</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -166,8 +193,7 @@
         <span class="tag">Distributed Systems • AI • Python • Golang • Java</span>
         <h1>Prajwal Ghoradkar</h1>
         <h2>Software Engineer</h2>
-        <p>MS CS @ Stony Brook (’26). Ex-Cisco (SD‑WAN Orchestration) & IFC (Green Certification AI Platform).</p>
-        <div class="callout">I love solving infra problems around scalability, observability, and developer experience.</div>
+        <div class="callout">Software Engineer with 4 years of experience designing and delivering large-scale distributed applications. Skilled in developing and deploying microservice-based architectures optimized for scalability, performance, and reliability. Currently pursuing a Master’s in Computer Science, expanding expertise in large-scale AI systems, AI infrastructure, and Generative AI applications. Passionate about integrating distributed systems engineering with emerging AI technologies to build robust, production-ready solutions.</div>
         <div class="stack" style="margin:16px 0 10px">
           <span class="pill">Python</span><span class="pill">Golang</span><span class="pill">Java</span>
           <span class="pill">Kubernetes</span><span class="pill">AWS</span>
@@ -177,7 +203,6 @@
         <div class="cta">
           <a class="btn solid" href="https://github.com/PrajwalG12121998" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn solid" href="https://www.linkedin.com/in/prajwal-ghoradkar-pg12/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="#experience">See experience ↓</a>
         </div>
       </div>
       <div class="media">
@@ -270,28 +295,111 @@ reduction in support tickets related to license issues.
     <!-- PROJECTS after education -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="meta">2025 • Golang • Kubernetes</div>
-          <h3>perftop (Kernel module)</h3>
-          <p>Linux kretprobe‑based scheduler profiler that tracks context switches and aggregates CPU time for the top tasks, exposing stats via <span class="kbd">/proc</span>.</p>
-          <div class="stack"><span class="pill">kretprobes</span><span class="pill">RBTrees</span><span class="pill">rdtsc</span></div>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a>
-        </article>
-        <article class="card">
-          <div class="meta">2025 • Python • AWS</div>
-          <h3>DocuAI Insight (Document QA)</h3>
-          <p>LangChain + VectorStore system to answer PDF questions; Cassandra/Astra for scalable storage; Streamlit UI for search and answer visualization.</p>
-          <div class="stack"><span class="pill">LangChain</span><span class="pill">Astra DB</span><span class="pill">RAG</span></div>
-          <a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a>
-        </article>
-        <article class="card">
-          <div class="meta">2024 • Solidity • React</div>
-          <h3>Blockchain Beer Distribution Game</h3>
-          <p>Smart‑contract simulation of supply chain roles; automated transactions and dashboards; published results with Emerald Insight.</p>
-          <div class="stack"><span class="pill">Solidity</span><span class="pill">Ganache</span><span class="pill">Node.js</span></div>
-          <a class="btn" href="https://www.emerald.com/insight/content/doi/10.1108/imds-10-2021-0609/full/html" target="_blank" rel="noreferrer">Paper</a>
-        </article>
+      <div class="projects">
+        <!-- PBFT Project -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>PBFT Protocol for Banking Transactions</h3>
+              <div class="meta">2024 • Go • gRPC • PBFT</div>
+              <div class="desc">Byzantine‑fault‑tolerant transaction system with view‑change, checkpointing, and signature verification; scaled to thousands of clients.</div>
+            </div>
+            <span class="badge">70 tps • 14 ms</span>
+          </summary>
+          <div class="badges"><span class="badge">Distributed Systems</span><span class="badge">Go</span><span class="badge">gRPC</span><span class="badge">PBFT</span></div>
+          <ul>
+            <li>Scaled to <strong>3,000 clients</strong> across <strong>7 servers</strong> with cryptographic signature verification.</li>
+            <li>Linearized BFT communication from <strong>O(n²)</strong> → <strong>O(n)</strong>; ~<strong>70 tps</strong> at ~<strong>14 ms</strong> avg latency of 14ms.</li>
+          </ul>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a></div> -->
+        </details>
+
+        <!-- E‑commerce Microservices Project -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>Modular E‑commerce Backend (Go Microservices)</h3>
+              <div class="meta">2025 • Go • Kubernetes • GraphQL</div>
+              <div class="desc">Microservices platform with a GraphQL API gateway, containerized services, and Kubernetes orchestration for scalable rollouts.</div>
+            </div>
+            <span class="badge">K8s • GraphQL</span>
+          </summary>
+          <div class="badges"><span class="badge">Go</span><span class="badge">GraphQL</span><span class="badge">Docker</span><span class="badge">Kubernetes</span><span class="badge">gRPC</span><span class="badge">PostgreSQL</span><span class="badge">Redis</span></div>
+          <ul>
+            <li>Unified service APIs via a <strong>GraphQL gateway</strong> in Go; reduced client–server coupling and improved data fetching.</li>
+            <li>Dockerized services and deployed on <strong>Kubernetes</strong> with health checks and CI/CD for automated rollouts & monitoring.</li>
+          </ul>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a></div> -->
+        </details>
+
+        <!-- NEW: Blockchain Supply Chain Role Play Game -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>Blockchain Based Supply Chain Role Play Game (Full Stack, Web3)</h3>
+              <div class="meta">Solidity • Ganache • TypeScript • Node.js • React</div>
+              <div class="desc">Blockchain version of the Beer Distribution Game; Integrated blochchain and delivered as a DApp for transparency and auditability.</div>
+            </div>
+            <span class="badge">Paper • Patent</span>
+          </summary>
+          <div class="badges"><span class="badge">Solidity</span><span class="badge">Ganache</span><span class="badge">TypeScript</span><span class="badge">React</span></div>
+          <ul>
+            <li>Implemented decentralized gameplay that produced a <strong>20% reduction</strong> in inventory holding costs.</li>
+            <li>The simulation helped in research of bullwhip effect, a common phenomenon observed in Supply chains</li>
+          </ul>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">Paper</a></div> -->
+        </details>
+
+        <!-- NEW: Interpreting Vanity License Plate using LLMs (Fine Tuning) -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>Interpreting Vanity License Plate using LLMs (Fine Tuning)</h3>
+              <div class="meta">Python • PyTorch • HuggingFace • Transformers</div>
+              <div class="desc">Fine‑tuned LLaMA with LoRA adapters for personalized vanity plate interpretation; cost‑efficient training on domain‑specific data.</div>
+            </div>
+            <span class="badge">LoRA • Fine‑tuning</span>
+          </summary>
+          <div class="badges"><span class="badge">PyTorch</span><span class="badge">HuggingFace</span><span class="badge">Transformers</span><span class="badge">Pandas</span></div>
+          <ul>
+            <li>Applied LoRA adapters and LR scheduling to cut training <em>cost/time</em> while improving inference accuracy.</li>
+            <li>Curated + augmented a custom dataset; evaluated with <strong>BLEU</strong> and <strong>ROUGE</strong> for semantic correctness and robustness.</li>
+          </ul>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a></div> -->
+        </details>
+
+        <!-- Perftop Project -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>Perftop (Kernel module)</h3>
+              <div class="meta">2025 • C • Linux</div>
+              <div class="desc">kretprobe‑based scheduler profiler tracking context switches; aggregates CPU time per task and exposes stats via <span class="kbd">/proc</span>.</div>
+            </div>
+            <span class="badge">Profiling</span>
+          </summary>
+          <div class="badges"><span class="badge">kretprobes</span><span class="badge">RBTrees</span><span class="badge">rdtsc</span></div>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">View Repo</a></div> -->
+        </details>
+
+        <!-- DocuAI Insight -->
+        <details class="proj">
+          <summary>
+            <div>
+              <h3>DocuAI Insight (Document QA)</h3>
+              <div class="meta">2025 • Python • LangChain • Astra DB • Streamlit</div>
+              <div class="desc">Developed “DocuAI Insight,” a RAG-based QA system over PDFs using LangChain, Astra DB, and Streamlit, enabling sub-second query responses with cited document sources.</div>
+            </div>
+            <span class="badge">≤1s queries</span>
+          </summary>
+          <div class="badges"><span class="badge">LangChain</span><span class="badge">Astra DB</span><span class="badge">Streamlit</span><span class="badge">RAG</span></div>
+          <ul>
+            <li>Improved accuracy by ~<strong>12%</strong> and reduced hallucinations by ~<strong>50%</strong> through optimized chunking, reranking, and citation-grounded prompting.</li>
+          </ul>
+          <!-- <div class="actions"><a class="btn" href="#" target="_blank" rel="noreferrer">Case Study</a></div> -->
+        </details>
+
+        
       </div>
     </section>
 
@@ -311,19 +419,22 @@ reduction in support tickets related to license issues.
 
     <section id="contact">
       <h2>Contact</h2>
-      <div class="panel">
-        <p>Open to Platform, Backend (Golang), and Distributed Systems roles. Best way to reach me is email.</p>
-        <p><a class="btn" href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <div class="contact-box">
+        <p class="lede">I’m open to roles in <strong>Backend Engineering</strong>, <strong>Platform</strong>, <strong>Backend Infrastructure</strong>, and <strong>AI Software Engineering</strong>.</p>
+        <dl class="contact-table">
+          <dt>Primary email</dt>
+          <dd><a href="mailto:prajwal.ghoradkar@stonybrook.edu">prajwal.ghoradkar@stonybrook.edu</a></dd>
+          <dt>Personal email</dt>
+          <dd><a href="mailto:prajwalghoradkar12@gmail.com">prajwalghoradkar12@gmail.com</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+19349497315">+1&nbsp;934‑949‑7315</a></dd>
+        </dl>
       </div>
     </section>
   </main>
 
   <footer class="container footer">
     <div>© <span id="year"></span> Prajwal Ghoradkar</div>
-    <div class="stack">
-      <a href="/resume.pdf" class="btn">Download résumé</a>
-      <a href="#" class="btn" id="theme">Toggle theme</a>
-    </div>
   </footer>
 
   <script>
@@ -331,27 +442,6 @@ reduction in support tickets related to license issues.
     const btn = document.getElementById('menubtn');
     const mobile = document.getElementById('mobile');
     btn?.addEventListener('click', () => mobile.classList.toggle('open'));
-    // Theme (light/dark toggle demo)
-    const themeBtn = document.getElementById('theme');
-    themeBtn?.addEventListener('click', () => {
-      if (document.body.dataset.theme === 'light') {
-        document.body.dataset.theme = '';
-        document.documentElement.style.setProperty('--bg', '#0b0f14');
-        document.documentElement.style.setProperty('--panel', '#0f141b');
-        document.documentElement.style.setProperty('--text', '#e6edf3');
-        document.documentElement.style.setProperty('--muted', '#9aa5b1');
-        document.documentElement.style.setProperty('--chip', '#1a2430');
-        document.documentElement.style.setProperty('--border', '#1f2937');
-      } else {
-        document.body.dataset.theme = 'light';
-        document.documentElement.style.setProperty('--bg', '#f7fafc');
-        document.documentElement.style.setProperty('--panel', '#ffffff');
-        document.documentElement.style.setProperty('--text', '#0f172a');
-        document.documentElement.style.setProperty('--muted', '#475569');
-        document.documentElement.style.setProperty('--chip', '#eef2f7');
-        document.documentElement.style.setProperty('--border', '#e5e7eb');
-      }
-    });
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
